@@ -13,6 +13,10 @@ a {
     color: midnightblue;
 }
 
+.back-page-row {
+    margin-top: 25px;
+}
+
 .back-page-link {
     background-color: #eee;
     color: #888;
@@ -133,6 +137,20 @@ input {
     display: flex;
     border-bottom: 1px solid #bbb;
     justify-content: space-between;
+}
+
+.sector-softwares-list-row {
+    margin: 10px 0px;
+    padding: 10px;
+    color: black;
+    display: flex;
+    border-bottom: 1px solid #bbb;
+    justify-content: space-between;
+}
+
+.sector-softwares-list-row a {
+    color: #888;
+    margin: 0px 5px;
 }
 
 .software-list-row {

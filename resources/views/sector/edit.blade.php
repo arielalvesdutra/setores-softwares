@@ -38,7 +38,39 @@
         </div>
     @endif
 
-    <div class="row">
+    <h2>Vincular Softwares</h2>
+
+    @if($allSoftwares->count())
+
+        <div>
+            @foreach($allSoftwares as $software)
+                <div class="sector-softwares-list-row">
+                <span>
+                {{ $software->name }}
+                </span>
+                    <span>
+                    @if($sectorSoftwares->where('id', $software->id)->toArray())
+                            <form action="/sectors/{{ $sector->id }}/unlink-software/{{ $software->id }}" method="POST">
+                            @csrf
+                            <input onclick="submit()" name="use" checked
+                                   type="checkbox" value="{{ $software->id }}" />
+                        </form>
+                        @endif
+                        @if(!$sectorSoftwares->where('id', $software->id)->toArray())
+                            <form action="/sectors/{{ $sector->id }}/link-software/{{ $software->id }}" method="POST">
+                            @csrf
+                            <input onclick="submit()" name="use" type="checkbox"
+                                   value="{{ $software->id }}" />
+                        </form>
+                        @endif
+                </span>
+                </div>
+            @endforeach
+        </div>
+
+    @endif
+
+    <div class="back-page-row">
         <a href="/sectors" class="back-page-link">Voltar</a>
     </div>
 </div>

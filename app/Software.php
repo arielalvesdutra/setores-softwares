@@ -12,4 +12,14 @@ class Software extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function sectors()
+    {
+        return $this->belongsToMany(
+            'App\Sector',
+            'sectors_softwares',
+            'software_id',
+            'sector_id'
+        );
+    }
 }

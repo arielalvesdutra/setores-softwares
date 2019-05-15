@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sector;
 use App\Software;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;

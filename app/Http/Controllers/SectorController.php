@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sector;
+use App\Software;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 
@@ -17,7 +18,15 @@ class SectorController extends Controller
 
     public function edit(Sector $sector)
     {
-        return view('sector.edit', compact('sector'));
+        $sectorSoftwares = $sector->softwares;
+
+        $allSoftwares = Software::all();
+
+        return view('sector.edit', compact(
+            'sector',
+            'allSoftwares',
+            'sectorSoftwares')
+        );
     }
 
     public function index()
@@ -25,6 +34,16 @@ class SectorController extends Controller
         $sectors = Sector::all();
 
         return view('sector.index', compact('sectors'));
+    }
+
+    public function linkSoftwares(int $sectorId, int $softwareId)
+    {
+        $sector = Sector::findOrFail($sectorId);
+        $software = Software::findOrFail($softwareId);
+
+        $sector->softwares()->attach($software->id);
+
+        return back();
     }
 
     public function store(Sector $sector)
@@ -48,6 +67,17 @@ class SectorController extends Controller
         $sector->save();
 
         return back();
+    }
+
+    public function unlinkSoftwares(int $sectorId, int $softwareId)
+    {
+        $sector = Sector::findOrFail($sectorId);
+        $software = Software::findOrFail($softwareId);
+
+        $sector->softwares()->detach($software->id);
+
+        return back();
+
     }
 
     public function update(Sector $sector)

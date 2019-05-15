@@ -20,6 +20,8 @@ Route::get('/', function () {
  */
 Route::resource('sectors', 'SectorController');
 Route::get('/sectors/{id}/delete', 'SectorController@destroy');
+Route::post('/sectors/{idSector}/link-software/{softwareId}', 'SectorController@linkSoftwares');
+Route::post('/sectors/{idSector}/unlink-software/{softwareId}', 'SectorController@unlinkSoftwares');
 
 /**
  * Softwares

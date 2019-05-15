@@ -13,5 +13,9 @@
     <div class="row">
         Aqui pode ter dois cards tipo dashboard: um de setor e outros de software
     </div>
+
+    <div class="row">
+        Aqui pode ter um select de setor para exibir os softwares que o setor possui
+    </div>
 </div>
 @endsection
