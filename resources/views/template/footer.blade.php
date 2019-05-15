@@ -1,6 +1,7 @@
 <footer class="footer">
-
-    @arielalvesdutra
+    <span>
+        @arielalvesdutra
+    </span>
 </footer>
 
 </body>

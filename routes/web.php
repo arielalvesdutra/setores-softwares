@@ -11,17 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', 'HomeController@index');
 
 /**
  * Sectors
  */
 Route::resource('sectors', 'SectorController');
 Route::get('/sectors/{id}/delete', 'SectorController@destroy');
+Route::get('/sectors/{id}/rest/sector-softwares', 'SectorController@retrieveSectorSoftwares');
 Route::post('/sectors/{idSector}/link-software/{softwareId}', 'SectorController@linkSoftwares');
 Route::post('/sectors/{idSector}/unlink-software/{softwareId}', 'SectorController@unlinkSoftwares');
+
 
 /**
  * Softwares

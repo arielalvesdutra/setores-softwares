@@ -46,6 +46,13 @@ class SectorController extends Controller
         return back();
     }
 
+    public function retrieveSectorSoftwares(int $sectorId)
+    {
+        $sector = Sector::findOrFail($sectorId);
+
+        return response()->json($sector->softwares);
+    }
+
     public function store(Sector $sector)
     {
         $name = request('name');

@@ -139,6 +139,13 @@ input {
     justify-content: space-between;
 }
 
+.sector-select {
+    background-color: white;
+    color: #333;
+    font-size: 0.9em;
+    padding: 7px 10px;
+}
+
 .sector-softwares-list-row {
     margin: 10px 0px;
     padding: 10px;
