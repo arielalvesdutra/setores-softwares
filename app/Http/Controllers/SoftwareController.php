@@ -4,82 +4,68 @@ namespace App\Http\Controllers;
 
 use App\Software;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class SoftwareController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function destroy(int $id)
     {
-        //
+        Software::destroy($id);
+
+        return redirect('/softwares');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Software  $software
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Software $software)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Software  $software
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Software $software)
     {
-        //
+        return view('software.edit', compact('software'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Software  $software
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Software $software)
+    public function index()
     {
-        //
+        $softwares = Software::all();
+
+        return view('software.index', compact('softwares'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Software  $software
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Software $software)
+    public function store(Software $software)
     {
-        //
+        $name = request('name');
+
+        if (empty($name)) {
+            return back()->with('errors', new MessageBag(['nameRequired' => 'nameRequired']));
+        }
+
+        $hasDuplicated =
+            Software::where('name','=', $name)->first();
+
+        if ($hasDuplicated) {
+            return back()->with('errors', new MessageBag(['duplicated' => 'duplicated']));
+        }
+
+        $software->name = $name;
+        $software->save();
+
+        return back();
+    }
+
+    public function update(Software $software)
+    {
+        $name = request('name');
+
+        if (empty($name)) {
+            return back()->with('errors', new MessageBag(['nameRequired' => 'nameRequired']));
+        }
+
+        $hasDuplicated =
+            Software::where('name','=', $name)->first();
+
+        if ($hasDuplicated) {
+            return back()->with('errors', new MessageBag(['duplicated' => 'duplicated']));
+        }
+
+        $software->name = $name;
+        $software->update();
+
+        return back();
     }
 }

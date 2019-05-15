@@ -13,12 +13,28 @@ a {
     color: midnightblue;
 }
 
+.back-page-link {
+    background-color: #eee;
+    color: #888;
+    font-weight: bold;
+    padding: 7px 10px;
+}
+
 body {
     background-color: #eee;
     color: #888;
     display: flex;
     flex-direction: column;
+}
 
+button {
+    padding: 9px 10px;
+    color: white;
+    /*background-color: #888;*/
+    background-color: green;
+    font-weight: bold;
+    border: none;
+    /*border-radius: 4px;*/
 }
 
 .content {
@@ -26,6 +42,10 @@ body {
     flex: 1;
     padding: 30px;
     display: flex;
+}
+
+.errors-container {
+    color: brown;
 }
 
 .footer {
@@ -36,12 +56,23 @@ body {
     justify-content: center;
 }
 
+h2 {
+    margin: 10px 0px 15px 0px;
+}
+
 .header {
     background-color: white;
-    /*height: 80px;*/
     display: flex;
     padding: 10px 0px 0px 10px;
     align-items: center;
+}
+
+.header a {
+    color: #888;
+}
+
+input {
+    padding: 7px 10px;
 }
 
 .logo {
@@ -86,4 +117,31 @@ body {
 .nav a:hover {
     background-color: #eee;
 }
+
+.plus-circle-span {
+    margin-right: 5px;
+}
+
+.row {
+    margin: 15px 0px;
+}
+
+.software-list-row {
+    margin: 10px 0px;
+    padding: 10px;
+    color: black;
+    display: flex;
+    border-bottom: 1px solid #bbb;
+    justify-content: space-between;
+}
+.software-list-row a {
+    color: #888;
+    margin: 0px 5px;
+}
+
+.software-creation {
+    display: flex;
+    align-items: center;
+}
+
 

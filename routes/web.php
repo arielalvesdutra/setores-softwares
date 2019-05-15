@@ -11,6 +11,12 @@
 |
 */
 
+use App\Http\Controllers\SoftwareController;
+
 Route::get('/', function () {
     return view('home.index');
 });
+
+
+Route::resource('softwares', 'SoftwareController');
+Route::get('/softwares/{id}/delete', 'SoftwareController@destroy');
