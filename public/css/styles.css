@@ -126,6 +126,15 @@ input {
     margin: 15px 0px;
 }
 
+.sector-list-row {
+    margin: 10px 0px;
+    padding: 10px;
+    color: black;
+    display: flex;
+    border-bottom: 1px solid #bbb;
+    justify-content: space-between;
+}
+
 .software-list-row {
     margin: 10px 0px;
     padding: 10px;
@@ -134,14 +143,23 @@ input {
     border-bottom: 1px solid #bbb;
     justify-content: space-between;
 }
+
 .software-list-row a {
     color: #888;
     margin: 0px 5px;
+}
+
+.sector-list-row a {
+    color: #888;
+    margin: 0px 5px;
+}
+
+.sector-creation {
+    display: flex;
+    align-items: center;
 }
 
 .software-creation {
     display: flex;
     align-items: center;
 }
-
-

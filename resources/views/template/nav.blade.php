@@ -2,7 +2,7 @@
 
     <ul>
         <li>
-            <a href="#">
+            <a href="/sectors">
                 Setores
             </a>
         </li>

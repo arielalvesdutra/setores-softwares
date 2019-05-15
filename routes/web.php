@@ -11,12 +11,18 @@
 |
 */
 
-use App\Http\Controllers\SoftwareController;
-
 Route::get('/', function () {
     return view('home.index');
 });
 
+/**
+ * Sectors
+ */
+Route::resource('sectors', 'SectorController');
+Route::get('/sectors/{id}/delete', 'SectorController@destroy');
 
+/**
+ * Softwares
+ */
 Route::resource('softwares', 'SoftwareController');
 Route::get('/softwares/{id}/delete', 'SoftwareController@destroy');
